@@ -1,0 +1,5 @@
+---
+interface Props { service: { slug: string; title: string; summary: string }; }
+const { service } = Astro.props;
+---
+<article class="service-card"><span class="eyebrow">FUSED EXPERTISE</span><h3>{service.title}</h3><p>{service.summary}</p><a href={`/diensten/${service.slug}/`}>Ontdek meer <span aria-hidden="true">↗</span></a></article>
