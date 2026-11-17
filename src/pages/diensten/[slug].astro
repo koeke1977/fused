@@ -1,0 +1,9 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import { services } from "../../data/services";
+export function getStaticPaths(){return services.map((service)=>({params:{slug:service.slug},props:{service}}));}
+const {service}=Astro.props;
+---
+<BaseLayout title={service.title}><SiteHeader /><section class="page-hero"><div class="container"><p class="eyebrow">ONZE DIENSTEN</p><h1>{service.title}</h1><p>{service.summary}</p><a class="button" href="mailto:info@fused.be">Bespreek je project</a></div></section><SiteFooter /></BaseLayout>
