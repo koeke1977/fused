@@ -1,0 +1,1 @@
+export const site = { name: "Fused", slogan: "Switch on Quality", email: "info@fused.be", phoneDisplay: "+32 478 96 27 03", phoneHref: "+32478962703", managingDirector: "Frederik", description: "Elektriciteitswerken, domotica en verlichting voor particuliere woningen." } as const;
