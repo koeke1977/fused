@@ -1,0 +1,8 @@
+---
+import "../styles/global.css";
+import { site } from "../data/site";
+interface Props { title: string; description?: string; }
+const { title, description = site.description } = Astro.props;
+---
+<!doctype html>
+<html lang="nl"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content={description} /><meta name="robots" content="noindex, nofollow" /><title>{title} | Fused – Switch on Quality</title></head><body><slot /></body></html>
