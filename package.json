@@ -1,1 +1,26 @@
-{"name":"fused-website","version":"0.1.0","private":true,"type":"module","scripts":{"dev":"astro dev","build":"astro build","preview":"astro preview","check":"astro check","deploy":"wrangler deploy"},"dependencies":{"@astrojs/cloudflare":"^12.6.0","astro":"^5.7.0"},"devDependencies":{"@astrojs/check":"^0.9.4","typescript":"^5.8.2","wrangler":"^4.8.0"}}
+{
+  "name": "fused-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "deploy": "wrangler deploy",
+    "studio": "sanity dev",
+    "studio:build": "sanity build"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^12.6.0",
+    "astro": "^5.7.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "typescript": "^5.8.2",
+    "wrangler": "^4.8.0",
+    "sanity": "^3.85.1",
+    "@sanity/vision": "^3.85.1"
+  }
+}
