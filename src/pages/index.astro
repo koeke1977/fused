@@ -8,4 +8,54 @@ import { services } from "../data/services";
 import { projects } from "../data/projects";
 import { site } from "../data/site";
 ---
-<BaseLayout title="Elektriciteitswerken voor jouw woning"><SiteHeader /><section class="hero"><div class="container hero-grid"><div><p class="eyebrow">FUSED · SWITCH ON QUALITY</p><h1>Techniek die werkt.<br /><span>Tot in de details.</span></h1><p>Elektriciteitswerken, domotica en verlichting voor wie kwaliteit belangrijk vindt.</p><a class="button" href="/projecten/">Ontdek onze realisaties</a></div><div class="hero-logo"><img src="/images/fused-logo-light.webp" alt="Fused – Switch on Quality" /></div></div></section><section class="section"><div class="container"><p class="eyebrow">WAAR FUSED VOOR STAAT</p><h2>Een sterke installatie begint bij <span>goed vakwerk.</span></h2><p>Van de eerste kabel tot de laatste afwerking: Fused denkt mee over elektrische oplossingen die passen bij jouw woning en jouw plannen.</p></div></section><section class="section services-section"><div class="container"><div class="section-heading"><div><p class="eyebrow">WAT WE DOEN</p><h2>Onze expertise</h2></div></div><div class="services-grid">{services.map((service)=><ServiceCard service={service} />)}</div></div></section><section class="section"><div class="container"><div class="section-heading"><div><p class="eyebrow">GEREALISEERD MET AANDACHT</p><h2>Projecten in de kijker</h2></div><a class="text-link" href="/projecten/">Alle projecten ↗</a></div><div class="projects-grid">{projects.map((project)=><ProjectCard project={project} />)}</div></div></section><section class="contact-band"><div class="container"><p class="eyebrow">EEN NIEUW PROJECT?</p><h2>Laat ons meedenken.</h2><a class="button" href={`mailto:${site.email}`}>Neem contact op ↗</a></div></section><SiteFooter /></BaseLayout>
+<BaseLayout title="Fused | Switch on Quality">
+  <SiteHeader />
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">SWITCH ON QUALITY</p>
+          <h1>Powerful techniek.<br /><span>Perfect afgewerkt.</span></h1>
+          <p>Elektriciteit, slimme technologie en verlichting. Fused brengt alles samen in één doordachte installatie.</p>
+          <div class="hero-actions">
+            <a class="button" href="/contact/">Bespreek je project <span aria-hidden="true">↗</span></a>
+            <a class="button button-ghost" href="/projecten/">Bekijk realisaties</a>
+          </div>
+        </div>
+        <div class="hero-brand">
+          <img src="/images/fused-logo-dark.webp" alt="Fused – Switch on Quality" />
+          <span>ELEKTRICITEIT · DOMOTICA · VERLICHTING</span>
+        </div>
+      </div>
+      <div class="hero-bottom container"><span>01 / 04</span><span>Techniek waarop je kan vertrouwen</span><span>BE · FUSED</span></div>
+    </section>
+
+    <section class="services-section section">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">WAT WE DOEN</p><h2>Alles begint met <span>de juiste connectie.</span></h2></div>
+          <p class="section-intro">Van een betrouwbare elektrische basis tot slimme oplossingen die je dagelijks leven makkelijker maken.</p>
+        </div>
+        <div class="services-grid">{services.map((service) => <ServiceCard service={service} />)}</div>
+      </div>
+    </section>
+
+    <section class="projects-section section">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">ONS WERK</p><h2>Gerealiseerd door Fused.</h2></div>
+          <a class="text-link" href="/projecten/">Alle projecten <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="projects-grid">{projects.map((project) => <ProjectCard project={project} />)}</div>
+      </div>
+    </section>
+
+    <section class="contact-band">
+      <div class="container contact-inner">
+        <div><p class="eyebrow">KLAAR OM TE STARTEN?</p><h2>Jouw plannen.<br />Onze expertise.</h2></div>
+        <a class="button button-dark" href={`mailto:${site.email}`}>Vertel ons erover <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>
