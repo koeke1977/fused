@@ -1,0 +1,8 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import { services } from "../../data/services";
+---
+<BaseLayout title="Diensten"><SiteHeader /><section class="page-hero"><div class="container"><p class="eyebrow">ONZE EXPERTISE</p><h1>Techniek op maat<br /><span>van jouw project.</span></h1><p>Van elektrische basisinstallaties tot slimme technologie en verlichting.</p></div></section><section class="section"><div class="container services-grid">{services.map((service)=><ServiceCard service={service} />)}</div></section><SiteFooter /></BaseLayout>
