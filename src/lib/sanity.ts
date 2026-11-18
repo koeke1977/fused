@@ -26,6 +26,7 @@ const sanityClient = createClient({
   projectId,
   dataset,
   apiVersion: "2026-11-18",
+  perspective: "published",
   useCdn: true,
 });
 
@@ -48,13 +49,20 @@ const projectsQuery = `*[_type == "project" && defined(slug.current)] | order(co
 export async function getProjects(): Promise<WebsiteProject[]> {
   try {
     const cmsProjects = await sanityClient.fetch<WebsiteProject[]>(projectsQuery);
+    const publishedProjects = cmsProjects.filter(
+      (project) => project.image && project.slug,
+    );
+    const publishedSlugs = new Set(publishedProjects.map((project) => project.slug));
+    const projectsStillToMigrate = fallbackProjects
+      .filter((project) => !publishedSlugs.has(project.slug))
+      .map((project) => ({ ...project }));
 
-    if (cmsProjects.length > 0) {
-      return cmsProjects.filter((project) => project.image && project.slug);
-    }
+    return [...publishedProjects, ...projectsStillToMigrate];
   } catch (error) {
-    console.error("Sanity-projecten konden niet worden opgehaald. De tijdelijke projectdata wordt gebruikt.", error);
+    console.error(
+      "Sanity-projecten konden niet worden opgehaald. De tijdelijke projectdata wordt gebruikt.",
+      error,
+    );
+    return fallbackProjects.map((project) => ({ ...project }));
   }
-
-  return fallbackProjects.map((project) => ({ ...project }));
 }
