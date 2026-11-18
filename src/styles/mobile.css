@@ -52,6 +52,8 @@
   .contact-form{grid-template-columns:minmax(0,1fr);gap:16px;padding:20px 16px}
   .form-field-wide,.form-privacy,.contact-submit,.form-notice{grid-column:auto}
   .legal-panel{padding:20px 16px}
+  .legal-list>div{padding:13px 0}
+  .footer-legal{flex-direction:column;gap:10px}
   .legal-list>div{grid-template-columns:minmax(0,1fr);gap:5px}
   .about-hero{padding:54px 0 38px}
   .about-hero h1{font-size:clamp(2.45rem,10vw,3.7rem)}
@@ -59,7 +61,10 @@
   .about-content{padding:44px 0 58px}
   .about-section{margin-bottom:38px}
   .about-signoff{margin-top:44px}
+  .about-signoff-slogan{font-size:1rem;letter-spacing:.1em}
+  .about-signoff-line{font-size:1.12rem}
   .file-upload-dropzone{min-height:150px;padding:16px 12px}
+  .file-upload-item{align-items:flex-start;flex-direction:column;gap:8px}
 }
 @media(max-width:380px){
   .container{width:calc(100% - 28px)}
