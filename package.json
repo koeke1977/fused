@@ -11,7 +11,8 @@
     "deploy": "wrangler deploy",
     "studio": "sanity dev",
     "studio:build": "sanity build",
-    "studio:deploy": "sanity deploy"
+    "studio:deploy": "sanity deploy",
+    "migrate:projects": "node scripts/migrate-projects-to-sanity.mjs"
   },
   "dependencies": {
     "@sanity/client": "^6.28.4",
