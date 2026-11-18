@@ -2,10 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
-import { getWebsiteSettings } from "../lib/sanity";
-
-const settings = await getWebsiteSettings();
 ---
+
 <BaseLayout title="Over Fused">
   <SiteHeader />
   <main class="about-page">
@@ -13,28 +11,30 @@ const settings = await getWebsiteSettings();
       <div class="container about-container">
         <p class="eyebrow">OVER FUSED</p>
         <h1>
-          <span>{settings.aboutTitle}</span>
-          <span class="about-title-accent">{settings.aboutTitleAccent}</span>
+          <span>Fused – Persoonlijk vakmanschap.</span>
+          <span class="about-title-accent">Switch on Quality.</span>
         </h1>
-        <p class="about-intro">{settings.aboutIntro}</p>
+        <p class="about-intro">Achter Fused staat Frederik. Na jarenlang ervaring te hebben opgedaan in de industriële elektriciteit in de haven, besloot hij resoluut zijn eigen weg te gaan. Als zelfstandige wilde hij vooral één ding: zelf de volledige controle hebben over zijn werk, van het eerste gesprek tot de uiteindelijke oplevering.
+
+Want voor Frederik draait elektriciteit om meer dan kabels trekken en aansluitingen plaatsen. Het gaat om kwaliteit, nauwkeurigheid en afspraken nakomen. Hij wil achter elk project met trots zijn naam kunnen zetten.</p>
       </div>
     </section>
     <section class="about-content">
       <div class="container about-container">
         <div class="about-section">
-          <h2>{settings.aboutProcessTitle}</h2>
-          <p>{settings.aboutProcessParagraph1}</p>
-          <p>{settings.aboutProcessParagraph2}</p>
+          <h2>Van eerste gesprek tot oplevering</h2>
+          <p>Bij Fused begint elk project met een persoonlijk gesprek. Luisteren naar jouw plannen, de noden in kaart brengen en samen nadenken over de beste oplossing. Daarna volgt een duidelijke offerte, een goede planning en een nauwgezette opvolging van de werken.</p>
+          <p>Afspraken zijn er om na te komen. Je weet waar je aan toe bent, wat er gebeurt en wanneer. En vooral: je hebt gedurende het volledige traject één vast aanspreekpunt. Geen doorschuiven, geen onduidelijkheid, maar rechtstreeks contact met Frederik.</p>
         </div>
         <div class="about-section">
-          <h2>{settings.aboutPersonalTitle}</h2>
-          <p>{settings.aboutPersonalParagraph1}</p>
-          <p>{settings.aboutPersonalParagraph2}</p>
+          <h2>Eén aanspreekpunt. Eén duidelijke visie.</h2>
+          <p>Of het nu gaat om elektriciteitswerken, domotica of verlichting: elk project krijgt dezelfde persoonlijke aandacht en professionele aanpak.</p>
+          <p>Frederik denkt mee, zoekt oplossingen en verliest daarbij nooit de kwaliteit uit het oog. Want een goed resultaat begint bij een goede samenwerking en eindigt met vakwerk waar iedereen tevreden op kan terugkijken.</p>
         </div>
         <div class="about-signoff">
-          <p class="about-signoff-brand">{settings.aboutClosingBrand}</p>
-          <p class="about-signoff-slogan">{settings.aboutClosingSlogan}</p>
-          <p class="about-signoff-line">{settings.aboutClosingLine}</p>
+          <p class="about-signoff-brand">FUSED</p>
+          <p class="about-signoff-slogan">SWITCH ON QUALITY.</p>
+          <p class="about-signoff-line">Kwaliteit is geen belofte voor achteraf. Het zit in elke stap van het project.</p>
         </div>
       </div>
     </section>
