@@ -1,1 +1,11 @@
-export const site = { name: "Fused", slogan: "Switch on Quality", email: "info@fused.be", phoneDisplay: "+32 478 96 27 03", phoneHref: "+32478962703", managingDirector: "Frederik", description: "Elektriciteitswerken, domotica en verlichting voor particuliere woningen." } as const;
+import { legal } from "./legal";
+
+export const site = {
+  name: legal.brandName,
+  slogan: "Switch on Quality",
+  email: legal.email,
+  phoneDisplay: legal.phoneDisplay,
+  phoneHref: legal.phoneHref,
+  managingDirector: "Frederik",
+  description: "Elektriciteitswerken, domotica en verlichting voor particuliere woningen."
+} as const;
