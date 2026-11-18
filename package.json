@@ -10,9 +10,11 @@
     "check": "astro check",
     "deploy": "wrangler deploy",
     "studio": "sanity dev",
-    "studio:build": "sanity build"
+    "studio:build": "sanity build",
+    "studio:deploy": "sanity deploy"
   },
   "dependencies": {
+    "@sanity/client": "^6.28.4",
     "astro": "^5.7.0"
   },
   "devDependencies": {
