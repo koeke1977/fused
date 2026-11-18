@@ -4,9 +4,9 @@ import SiteHeader from "../../components/SiteHeader.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import { getProjects } from "../../lib/sanity";
 
-const projects = await getProjects();
+export async function getStaticPaths() {
+  const projects = await getProjects();
 
-export function getStaticPaths() {
   return projects.map((project) => ({
     params: { slug: project.slug },
     props: { project },
