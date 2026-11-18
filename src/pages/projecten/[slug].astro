@@ -6,7 +6,6 @@ import { getProjects } from "../../lib/sanity";
 
 export async function getStaticPaths() {
   const projects = await getProjects();
-
   return projects.map((project) => ({
     params: { slug: project.slug },
     props: { project },
@@ -22,6 +21,7 @@ const { project } = Astro.props;
       <header class="project-detail-copy container">
         <p class="eyebrow">{project.category}</p>
         <h1>{project.title}</h1>
+        {project.year && <p class="project-year">Uitgevoerd in {project.year}</p>}
         <p>{project.summary}</p>
       </header>
       <div class="container project-detail-image">
