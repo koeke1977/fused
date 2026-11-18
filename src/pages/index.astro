@@ -41,7 +41,9 @@ const featuredProjects = projects.filter((project) => project.featured);
           <p class="section-intro">{settings.servicesIntro}</p>
         </div>
         <div class="services-grid">{services.map((service) => <ServiceCard service={service} />)}</div>
-        <a class="text-link mobile-home-link" href="/diensten/">Ontdek alle expertises <span aria-hidden="true">↗</span></a>
+        <ul class="mobile-services-list" aria-label="Fused expertises">
+          {services.map((service) => <li><a href={`/diensten/${service.slug}/`}>{service.title}<span aria-hidden="true">↗</span></a></li>)}
+        </ul>
       </div>
     </section>
 
