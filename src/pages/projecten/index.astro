@@ -3,6 +3,25 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import ProjectCard from "../../components/ProjectCard.astro";
-import { projects } from "../../data/projects";
+import { getProjects } from "../../lib/sanity";
+
+const projects = await getProjects();
 ---
-<BaseLayout title="Projecten"><SiteHeader /><section class="page-hero"><div class="container"><p class="eyebrow">ONZE REALISATIES</p><h1>Gemaakt met oog<br /><span>voor kwaliteit.</span></h1><p>Een selectie van elektrische installaties en slimme oplossingen.</p></div></section><section class="section"><div class="container projects-grid">{projects.map((project)=><ProjectCard project={project} />)}</div></section><SiteFooter /></BaseLayout>
+<BaseLayout title="Projecten">
+  <SiteHeader />
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">ONZE REALISATIES</p>
+        <h1>Gemaakt met oog<br /><span>voor kwaliteit.</span></h1>
+        <p>Een selectie van elektrische installaties en slimme oplossingen.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container projects-grid">
+        {projects.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>
