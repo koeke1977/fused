@@ -82,7 +82,7 @@ const sanityClient = createClient({
   dataset,
   apiVersion: "2026-11-18",
   perspective: "published",
-  useCdn: true,
+  // Bypass Sanity's CDN during static builds so newly published content is fetched from the API.\n  useCdn: false,
 });
 
 const projectsQuery = `*[_type == "project" && defined(slug.current)] | order(coalesce(publishedAt, _createdAt) desc) {

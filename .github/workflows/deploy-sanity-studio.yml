@@ -1,6 +1,15 @@
 name: Deploy Sanity Studio
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "sanity/**"
+      - "sanity.config.ts"
+      - "sanity.cli.ts"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/deploy-sanity-studio.yml"
   workflow_dispatch:
 
 permissions:
@@ -19,9 +28,9 @@ jobs:
           node-version: 22
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Deploy Sanity Studio
-        run: npx --yes sanity@latest deploy --url fused-projectbeheer --yes --schema-required
+        run: npx sanity deploy --url fused-projectbeheer --yes --schema-required
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
