@@ -2,6 +2,42 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
-import { site } from "../data/site";
+import { getWebsiteSettings } from "../lib/sanity";
+
+const settings = await getWebsiteSettings();
 ---
-<BaseLayout title="Over Fused"><SiteHeader /><section class="page-hero"><div class="container"><p class="eyebrow">OVER FUSED</p><h1>Switch on Quality.</h1><p>Fused staat voor kwalitatieve elektrische installaties, slimme technieken en een verzorgde afwerking.</p><p>Onder leiding van {site.managingDirector} werkt Fused aan oplossingen op maat van elk project.</p></div></section><SiteFooter /></BaseLayout>
+<BaseLayout title="Over Fused">
+  <SiteHeader />
+  <main class="about-page">
+    <section class="about-hero">
+      <div class="container about-container">
+        <p class="eyebrow">OVER FUSED</p>
+        <h1>
+          <span>{settings.aboutTitle}</span>
+          <span class="about-title-accent">{settings.aboutTitleAccent}</span>
+        </h1>
+        <p class="about-intro">{settings.aboutIntro}</p>
+      </div>
+    </section>
+    <section class="about-content">
+      <div class="container about-container">
+        <div class="about-section">
+          <h2>{settings.aboutProcessTitle}</h2>
+          <p>{settings.aboutProcessParagraph1}</p>
+          <p>{settings.aboutProcessParagraph2}</p>
+        </div>
+        <div class="about-section">
+          <h2>{settings.aboutPersonalTitle}</h2>
+          <p>{settings.aboutPersonalParagraph1}</p>
+          <p>{settings.aboutPersonalParagraph2}</p>
+        </div>
+        <div class="about-signoff">
+          <p class="about-signoff-brand">{settings.aboutClosingBrand}</p>
+          <p class="about-signoff-slogan">{settings.aboutClosingSlogan}</p>
+          <p class="about-signoff-line">{settings.aboutClosingLine}</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>
