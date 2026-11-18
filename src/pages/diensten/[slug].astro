@@ -21,7 +21,7 @@ const { service } = Astro.props;
         <p class="eyebrow">ONZE DIENSTEN</p>
         <h1>{service.title}</h1>
         <p>{service.summary}</p>
-        {service.details && (
+        {"details" in service && (
           <div class="service-detail-extra">
             <h2>{service.detailsTitle}</h2>
             <ul>
