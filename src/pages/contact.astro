@@ -25,7 +25,6 @@ const settings = await getWebsiteSettings();
           <div class="contact-direct">
             <span>Toch liever telefonisch?</span>
             <a href={`tel:${settings.phoneHref}`}>{settings.phoneDisplay}</a>
-            <a href={`mailto:${settings.email}`}>{settings.email}</a>
           </div>
         </div>
         <form class="contact-form" aria-describedby="contact-form-notice">
