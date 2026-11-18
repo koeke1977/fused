@@ -1,4 +1,18 @@
 ---
 import { site } from "../data/site";
 ---
-<footer class="site-footer"><div class="container footer-inner"><img src="/images/FusedWhite.png" alt="Fused – Switch on Quality" /><div><strong>Contact</strong><a href="/contact/">Stel je vraag</a><a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a></div></div><div class="container copyright">© {new Date().getFullYear()} Fused · Switch on Quality</div></footer>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <img src="/images/FusedWhite.png" alt="Fused – Switch on Quality" />
+    <div class="footer-contact">
+      <strong>Contact</strong>
+      <a href="/contact/">Stel je vraag</a>
+      <a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a>
+    </div>
+    <nav class="footer-legal" aria-label="Juridische informatie">
+      <a href="/juridisch/">Juridische informatie</a>
+      <a href="/privacy/">Privacyverklaring</a>
+    </nav>
+  </div>
+  <div class="container copyright">© {new Date().getFullYear()} Fused · Switch on Quality</div>
+</footer>
