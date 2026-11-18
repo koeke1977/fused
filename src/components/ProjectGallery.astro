@@ -10,7 +10,7 @@ const images = [
   { image: project.image, alt: project.imageAlt },
   ...(project.gallery ?? []),
 ];
-const layout = images.length === 1 ? "single" : images.length <= 3 ? "compact" : "extended";
+const layout = images.length === 1 ? "single" : images.length === 2 ? "pair" : images.length === 3 ? "compact" : "extended";
 ---
 
 <section class={`project-gallery project-gallery--${layout}`} aria-label="Projectfoto's">
