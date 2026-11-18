@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { legal } from "../data/legal";
+---
+<BaseLayout title="Privacyverklaring" description="Privacyverklaring van FUSED: informatie over persoonsgegevens en privacyrechten.">
+  <SiteHeader />
+  <main>
+    <section class="page-hero legal-hero">
+      <div class="container">
+        <p class="eyebrow">FUSED · PRIVACY</p>
+        <h1>Privacy<span>.</span></h1>
+        <p>We gaan zorgvuldig om met persoonsgegevens en gebruiken ze alleen waar dat nodig is.</p>
+      </div>
+    </section>
+    <section class="section legal-section">
+      <div class="container legal-content legal-prose">
+        <p class="legal-updated">Versie: 18 november 2026</p>
+        <h2>1. Wie is verantwoordelijk?</h2>
+        <p>De verwerkingsverantwoordelijke voor de verwerking van persoonsgegevens via deze website is {legal.legalName}, handelend onder de naam {legal.brandName}, met maatschappelijke zetel te {legal.registeredOffice} en ondernemingsnummer {legal.enterpriseNumber}. Je kan contact opnemen via <a href={`mailto:${legal.email}`}>{legal.email}</a> of {legal.phoneDisplay}.</p>
+        <h2>2. Welke gegevens verwerken we?</h2>
+        <p>Wanneer je zelf contact met ons opneemt, kunnen we de gegevens verwerken die je ons bezorgt, zoals je naam, e-mailadres, telefoonnummer en de inhoud van je bericht. We vragen om geen gevoelige of bijzondere persoonsgegevens mee te sturen.</p>
+        <h2>3. Waarom verwerken we die gegevens?</h2>
+        <p>We gebruiken contactgegevens om vragen te beantwoorden, aanvragen op te volgen en, wanneer je daarom vraagt, contact met je op te nemen over een mogelijke opdracht. We gebruiken gegevens niet voor ongevraagde reclame.</p>
+        <h2>4. Rechtsgrond</h2>
+        <p>Afhankelijk van je vraag verwerken we gegevens omdat dit nodig is om op jouw verzoek stappen te zetten vóór een overeenkomst, om een overeenkomst uit te voeren of omdat we daarvoor een gerechtvaardigd belang hebben. Wanneer toestemming vereist is, vragen we die afzonderlijk.</p>
+        <h2>5. Bewaartermijn</h2>
+        <p>We bewaren persoonsgegevens niet langer dan nodig is voor het doel waarvoor ze werden verzameld en houden rekening met toepasselijke wettelijke bewaartermijnen. De concrete bewaartermijn hangt af van de aard van de aanvraag en eventuele verdere samenwerking.</p>
+        <h2>6. Delen met derden</h2>
+        <p>We verkopen je persoonsgegevens niet. Gegevens worden alleen gedeeld met dienstverleners wanneer dat noodzakelijk is voor de werking van de website of de behandeling van je aanvraag, of wanneer we daartoe wettelijk verplicht zijn. Waar nodig maken we afspraken over een passende bescherming van die gegevens.</p>
+        <h2>7. Jouw rechten</h2>
+        <p>Je kan, binnen de wettelijke voorwaarden, vragen om je persoonsgegevens in te zien, te verbeteren, te wissen of de verwerking ervan te beperken. Je kan ook bezwaar maken tegen bepaalde verwerkingen of vragen om gegevens over te dragen. Stuur je verzoek naar <a href={`mailto:${legal.email}`}>{legal.email}</a>. We kunnen je vragen je identiteit te bevestigen om misbruik te voorkomen.</p>
+        <h2>8. Klacht indienen</h2>
+        <p>Als je meent dat je privacyrechten niet worden gerespecteerd, kan je contact met ons opnemen. Je hebt ook het recht een klacht in te dienen bij de Belgische Gegevensbeschermingsautoriteit via <a href="https://www.gegevensbeschermingsautoriteit.be/" target="_blank" rel="noopener noreferrer">www.gegevensbeschermingsautoriteit.be</a>.</p>
+        <h2>9. Cookies</h2>
+        <p>Deze website kan technisch noodzakelijke opslag of cookies gebruiken om de website veilig en correct te laten functioneren. Als we niet-noodzakelijke cookies of vergelijkbare technologieën inzetten, informeren we je daarover en vragen we vooraf de vereiste toestemming.</p>
+        <h2>10. Wijzigingen</h2>
+        <p>We kunnen deze privacyverklaring aanpassen wanneer onze website, dienstverlening of wettelijke verplichtingen wijzigen. De meest recente versie staat steeds op deze pagina.</p>
+        <p class="legal-disclaimer">Deze privacyverklaring is een eerste publicatieversie. De definitieve beschrijving van de mailverwerking, bewaartermijnen, hosting- en eventuele analyse- of marketingdiensten moet vóór de activering van het contactformulier en vóór publieke lancering worden afgestemd op de werkelijk gebruikte diensten en configuratie.</p>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>
