@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { legal } from "../data/legal";
+---
+<BaseLayout title="Juridische informatie" description="Wettelijke identificatiegegevens en contactinformatie van FUSED.">
+  <SiteHeader />
+  <main>
+    <section class="page-hero legal-hero">
+      <div class="container">
+        <p class="eyebrow">FUSED · TRANSPARANTIE</p>
+        <h1>Juridische <span>informatie.</span></h1>
+        <p>De wettelijke identificatiegegevens van FUSED.</p>
+      </div>
+    </section>
+    <section class="section legal-section">
+      <div class="container legal-content">
+        <div class="legal-panel">
+          <p class="eyebrow">ONDERNEMING</p>
+          <h2>{legal.brandName}</h2>
+          <dl class="legal-list">
+            <div><dt>Officiële naam</dt><dd>{legal.legalName}</dd></div>
+            <div><dt>Rechtsvorm</dt><dd>{legal.legalForm}</dd></div>
+            <div><dt>Maatschappelijke zetel</dt><dd>{legal.registeredOffice}</dd></div>
+            <div><dt>Ondernemingsnummer</dt><dd>{legal.enterpriseNumber}</dd></div>
+            <div><dt>BTW-nummer</dt><dd>{legal.vatNumber}</dd></div>
+            <div><dt>E-mail</dt><dd><a href={`mailto:${legal.email}`}>{legal.email}</a></dd></div>
+            <div><dt>Telefoon</dt><dd><a href={`tel:${legal.phoneHref}`}>{legal.phoneDisplay}</a></dd></div>
+            <div><dt>Website</dt><dd><a href={legal.website}>{legal.website.replace("https://", "")}</a></dd></div>
+          </dl>
+        </div>
+        <div class="legal-panel">
+          <p class="eyebrow">MEER INFORMATIE</p>
+          <h2>Privacy en gegevens</h2>
+          <p>Wil je weten hoe FUSED omgaat met persoonsgegevens? Lees onze <a href="/privacy/">privacyverklaring</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>
