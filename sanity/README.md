@@ -16,7 +16,10 @@ Project-ID en dataset zijn publieke configuratiegegevens. Commit nooit API-token
 - Maak een document aan bij **Realisaties**.
 - Vul titel, webadres, categorie en korte omschrijving in.
 - Voeg een hoofdfoto toe en vul de alternatieve tekst in.
-- Voeg indien gewenst extra foto's toe.
+- Voeg indien gewenst extra foto's toe. Je kunt er zoveel toevoegen als het project nodig heeft.
+- De hoofdfoto wordt altijd als eerste getoond en dient ook als cover op de overzichts- en homepagekaarten.
+- De fotopresentatie past zich automatisch aan: één foto krijgt een rustige, gecentreerde presentatie; twee of drie foto's krijgen een compacte compositie; vanaf vier foto's wordt de uitgebreide galerij gebruikt.
+- De volgorde van de extra foto's in Sanity bepaalt de volgorde op de website.
 - Zet **Uitlichten op de startpagina** aan om het project op de homepage te tonen.
 - Publiceer het document om het zichtbaar te maken.
 
