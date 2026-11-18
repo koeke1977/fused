@@ -12,7 +12,8 @@
     "studio": "sanity dev",
     "studio:build": "sanity build",
     "studio:deploy": "sanity deploy",
-    "migrate:projects": "node scripts/migrate-projects-to-sanity.mjs"
+    "migrate:projects": "node scripts/migrate-projects-to-sanity.mjs",
+    "migrate:content-drafts": "node scripts/prepare-sanity-content-drafts.mjs"
   },
   "dependencies": {
     "@sanity/client": "^6.28.4",
