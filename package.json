@@ -26,6 +26,7 @@
     "@sanity/vision": "^6.0.0",
     "react": "^19.2.2",
     "react-dom": "^19.2.2",
-    "styled-components": "^6.1.15"
+    "styled-components": "^6.1.15",
+    "@types/node": "^22.19.0"
   }
 }
