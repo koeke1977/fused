@@ -6,7 +6,6 @@ import ServiceCard from "../components/ServiceCard.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import { services } from "../data/services";
 import { projects } from "../data/projects";
-import { site } from "../data/site";
 ---
 <BaseLayout title="Fused | Switch on Quality">
   <SiteHeader />
@@ -53,7 +52,7 @@ import { site } from "../data/site";
     <section class="contact-band">
       <div class="container contact-inner">
         <div><p class="eyebrow">KLAAR OM TE STARTEN?</p><h2>Jouw plannen.<br />Onze expertise.</h2></div>
-        <a class="button button-dark" href={`mailto:${site.email}`}>Vertel ons erover <span aria-hidden="true">↗</span></a>
+        <a class="button button-dark" href="/contact/">Vertel ons erover <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </main>
