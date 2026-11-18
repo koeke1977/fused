@@ -1,5 +1,4 @@
 import { createClient } from "@sanity/client";
-import { projects as fallbackProjects } from "../data/projects";
 
 export interface ProjectGalleryImage {
   image: string;
@@ -47,22 +46,7 @@ const projectsQuery = `*[_type == "project" && defined(slug.current)] | order(co
 }`;
 
 export async function getProjects(): Promise<WebsiteProject[]> {
-  try {
-    const cmsProjects = await sanityClient.fetch<WebsiteProject[]>(projectsQuery);
-    const publishedProjects = cmsProjects.filter(
-      (project) => project.image && project.slug,
-    );
-    const publishedSlugs = new Set(publishedProjects.map((project) => project.slug));
-    const projectsStillToMigrate = fallbackProjects
-      .filter((project) => !publishedSlugs.has(project.slug))
-      .map((project) => ({ ...project }));
+  const cmsProjects = await sanityClient.fetch<WebsiteProject[]>(projectsQuery);
 
-    return [...publishedProjects, ...projectsStillToMigrate];
-  } catch (error) {
-    console.error(
-      "Sanity-projecten konden niet worden opgehaald. De tijdelijke projectdata wordt gebruikt.",
-      error,
-    );
-    return fallbackProjects.map((project) => ({ ...project }));
-  }
+  return cmsProjects.filter((project) => project.image && project.slug);
 }
