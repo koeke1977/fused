@@ -4,10 +4,13 @@ import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import ProjectCard from "../components/ProjectCard.astro";
-import { services } from "../data/services";
-import { getProjects } from "../lib/sanity";
+import { getProjects, getServices, getWebsiteSettings } from "../lib/sanity";
 
-const projects = await getProjects();
+const [projects, services, settings] = await Promise.all([
+  getProjects(),
+  getServices(),
+  getWebsiteSettings()
+]);
 const featuredProjects = projects.filter((project) => project.featured);
 ---
 <BaseLayout title="Fused | Switch on Quality">
@@ -16,12 +19,12 @@ const featuredProjects = projects.filter((project) => project.featured);
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">SWITCH ON QUALITY</p>
-          <h1>Powerful techniek.<br /><span>Perfect afgewerkt.</span></h1>
-          <p>Elektriciteit, slimme technologie en verlichting. Fused brengt alles samen in één doordachte installatie.</p>
+          <p class="eyebrow">{settings.heroEyebrow}</p>
+          <h1>{settings.heroTitle}<br /><span>{settings.heroTitleAccent}</span></h1>
+          <p>{settings.heroIntro}</p>
           <div class="hero-actions">
-            <a class="button" href="/contact/">Bespreek je project <span aria-hidden="true">↗</span></a>
-            <a class="button button-ghost" href="/projecten/">Bekijk realisaties</a>
+            <a class="button" href="/contact/">{settings.heroPrimaryCta} <span aria-hidden="true">↗</span></a>
+            <a class="button button-ghost" href="/projecten/">{settings.heroSecondaryCta}</a>
           </div>
         </div>
         <div class="hero-brand">
@@ -29,14 +32,14 @@ const featuredProjects = projects.filter((project) => project.featured);
           <span>ELEKTRICITEIT · DOMOTICA · VERLICHTING</span>
         </div>
       </div>
-      <div class="hero-bottom container"><span>01 / 04</span><span>Techniek waarop je kan vertrouwen</span><span>BE · FUSED</span></div>
+      <div class="hero-bottom container"><span>01 / 04</span><span>{settings.heroBottomLine}</span><span>BE · FUSED</span></div>
     </section>
 
     <section class="services-section section">
       <div class="container">
         <div class="section-heading">
-          <div><p class="eyebrow">WAT WE DOEN</p><h2>Alles begint met <span>de juiste connectie.</span></h2></div>
-          <p class="section-intro">Van een betrouwbare elektrische basis tot slimme oplossingen die je dagelijks leven makkelijker maken.</p>
+          <div><p class="eyebrow">{settings.servicesEyebrow}</p><h2>{settings.servicesTitle} <span>{settings.servicesTitleAccent}</span></h2></div>
+          <p class="section-intro">{settings.servicesIntro}</p>
         </div>
         <div class="services-grid">{services.map((service) => <ServiceCard service={service} />)}</div>
       </div>
@@ -45,7 +48,7 @@ const featuredProjects = projects.filter((project) => project.featured);
     <section class="projects-section section">
       <div class="container">
         <div class="section-heading">
-          <div><p class="eyebrow">ONS WERK</p><h2>Gerealiseerd door Fused.</h2></div>
+          <div><p class="eyebrow">{settings.projectsEyebrow}</p><h2>{settings.projectsTitle}</h2></div>
           <a class="text-link" href="/projecten/">Alle projecten <span aria-hidden="true">↗</span></a>
         </div>
         <div class="projects-grid">{featuredProjects.map((project) => <ProjectCard project={project} />)}</div>
@@ -54,8 +57,8 @@ const featuredProjects = projects.filter((project) => project.featured);
 
     <section class="contact-band">
       <div class="container contact-inner">
-        <div><p class="eyebrow">KLAAR OM TE STARTEN?</p><h2>Jouw plannen.<br />Onze expertise.</h2></div>
-        <a class="button button-dark" href="/contact/">Vertel ons erover <span aria-hidden="true">↗</span></a>
+        <div><p class="eyebrow">{settings.contactEyebrow}</p><h2>{settings.contactTitle}</h2></div>
+        <a class="button button-dark" href="/contact/">{settings.contactCta} <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </main>
