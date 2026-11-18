@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
-  width: min(100% - 48px, 1040px);
+  width: min(calc(100% - 48px), 1040px);
   margin-inline: auto;
   padding-bottom: 76px;
 }
@@ -25,7 +25,7 @@
 
 .project-gallery--single {
   display: block;
-  width: min(100% - 48px, 780px);
+  width: min(calc(100% - 48px), 780px);
 }
 
 .project-gallery--single .project-gallery__item img {
