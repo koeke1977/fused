@@ -10,6 +10,7 @@
   .mobile-menu summary::-webkit-details-marker{display:none}
   .mobile-menu summary::marker{content:""}
   .mobile-menu summary span{display:block;width:19px;height:2px;background:#fff;transition:transform .2s,opacity .2s}
+  .mobile-menu summary:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
   .mobile-menu[open] summary span:first-child{transform:translateY(8px) rotate(45deg)}
   .mobile-menu[open] summary span:nth-child(2){opacity:0}
   .mobile-menu[open] summary span:last-child{transform:translateY(-8px) rotate(-45deg)}
@@ -34,7 +35,7 @@
   .service-card{min-height:0;padding:22px}
   .service-card h3{margin:18px 0 10px}
   .service-card p{min-height:0;font-size:1.02rem}
-  .project-card img{aspect-ratio:16/10;object-fit:cover}
+  .project-card img{aspect-ratio:16/10;object-fit:contain}
   .project-copy{padding:14px 0}
   .project-copy p{font-size:1.02rem}
   .contact-band{padding:44px 0}
