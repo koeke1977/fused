@@ -25,6 +25,7 @@
   .hero-copy>p:not(.eyebrow){max-width:36rem;font-size:1.05rem;line-height:1.6}
   .hero-actions{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-top:24px}
   .hero-actions .button{width:100%;justify-content:center;padding:15px 18px;font-size:1rem}
+  .button span[aria-hidden="true"]{display:none}
   .hero-brand{gap:12px;padding:18px 0 4px}
   .hero-brand img{width:min(76%,300px)}
   .hero-brand span{max-width:100%;font-size:clamp(.62rem,2.7vw,.78rem);letter-spacing:.1em;white-space:normal;line-height:1.5}
