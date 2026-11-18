@@ -3,6 +3,22 @@ import "../styles/global.css";
 import { site } from "../data/site";
 interface Props { title: string; description?: string; }
 const { title, description = site.description } = Astro.props;
+const pageTitle = title.includes("Fused") ? title : `${title} | Fused – Switch on Quality`;
 ---
 <!doctype html>
-<html lang="nl"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content={description} /><meta name="robots" content="noindex, nofollow" /><link rel="icon" type="image/png" href="/images/F.png" /><title>{title} | Fused – Switch on Quality</title></head><body><slot /></body></html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#080808" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Fused" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <link rel="icon" type="image/png" href="/images/F.png" />
+    <title>{pageTitle}</title>
+  </head>
+  <body><slot /></body>
+</html>
