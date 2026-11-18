@@ -19,11 +19,11 @@ Vermeld uitsluitend werken die effectief door FUSED zijn uitgevoerd. Publiceer g
 
 Diensten worden beheerd als `service`-documenten. De volgorde wordt bepaald door **Volgorde op website**. Schakel **Tonen op website** uit om een dienst tijdelijk te verbergen. Elke dienst heeft een titel, slug en korte omschrijving; optioneel kunnen een tussentitel en opsomming van werkzaamheden worden toegevoegd.
 
-Zolang er nog geen gepubliceerde dienstendocumenten bestaan, gebruikt de website de bestaande lokale dienstenteksten als tijdelijke terugval. Zodra minstens één dienst gepubliceerd is, komen de diensten uit Sanity.
+Zolang er nog geen gepubliceerde dienstendocumenten bestaan, gebruikt de website de bestaande lokale dienstenteksten als tijdelijke terugval. Zodra minstens één dienst gepubliceerd is, komen de diensten uit Sanity. De voorbereidende migratie maakt daarom alle vier de diensten uitsluitend als concept aan; publiceer ze pas samen na controle.
 
 ## Website-instellingen
 
-Maak één document aan bij **Website-instellingen**. Daar beheer je:
+Maak één document aan bij **Website-instellingen**. De voorbereidende migratie maakt dit als concept aan. Daar beheer je:
 - De hoofdboodschap, intro en knoppen van de homepage.
 - De titels en intro's van de homepage-secties.
 - De slogan en publieke contactgegevens die in de footer worden getoond.
