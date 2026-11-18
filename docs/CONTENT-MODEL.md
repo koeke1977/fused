@@ -1,39 +1,35 @@
 # FUSED contentmodel
 
-## Realisaties in Sanity
+## Realisaties
 
-Projecten worden beheerd als `project`-documenten in de publieke `production`-dataset.
+Projecten worden beheerd als `project`-documenten in de publieke `production`-dataset. De website toont alleen gepubliceerde projecten.
 
 | Veld | Doel |
 |---|---|
-| Projecttitel | Naam op projectkaart en detailpagina |
-| Webadres | Unieke URL-slug |
-| Categorie | Elektriciteitswerken, Domotica / Smart Home, Verlichting of Industriële installaties |
-| Korte omschrijving | Intro op kaart en detailpagina |
-| Projectomschrijving | Beschrijving van de effectief door FUSED uitgevoerde werken |
-| Hoofdfoto | Verplichte representatieve foto |
-| Alternatieve tekst hoofdfoto | Toegankelijke fotobeschrijving |
+| Projecttitel en webadres | Naam en unieke URL |
+| Categorie en omschrijvingen | Projectkaart en detailpagina |
+| Hoofdfoto en alternatieve tekst | Representatieve, toegankelijke projectfoto |
 | Extra projectfoto's | Optionele galerij met alt-tekst per foto |
 | Uitlichten op de startpagina | Bepaalt of de realisatie op de homepage verschijnt |
-| Jaar van uitvoering | Optioneel jaartal |
-| Publicatiedatum | Sorteervolgorde van gepubliceerde realisaties |
+| Jaar en publicatiedatum | Projectmetadata en sortering |
 
-Sanity beheert concepten en publicatiestatus zelf. Een concept wordt niet door de publieke website opgehaald.
+Vermeld uitsluitend werken die effectief door FUSED zijn uitgevoerd. Publiceer geen vertrouwelijke klantgegevens of adressen.
 
-## Ingevoerde realisaties
+## Diensten
 
-De eerste twee portfolio-items zijn gemigreerd en gepubliceerd in Sanity:
+Diensten worden beheerd als `service`-documenten. De volgorde wordt bepaald door **Volgorde op website**. Schakel **Tonen op website** uit om een dienst tijdelijk te verbergen. Elke dienst heeft een titel, slug en korte omschrijving; optioneel kunnen een tussentitel en opsomming van werkzaamheden worden toegevoegd.
 
-### Residentiële nieuwbouw
-- Categorie: Elektriciteitswerken
-- Scope: volledige elektrische installatie en bekabeling van een nieuwbouwwoning.
-- Belangrijke nuance: de zonnepanelen en warmtepomp zijn aanwezig, maar werden niet door FUSED geplaatst.
-- Hoofdfoto: bestaande foto van de elektrische verdeelkast.
+Zolang er nog geen gepubliceerde dienstendocumenten bestaan, gebruikt de website de bestaande lokale dienstenteksten als tijdelijke terugval. Zodra minstens één dienst gepubliceerd is, komen de diensten uit Sanity.
 
-### Residentiële domotica
-- Categorie: Domotica / Smart Home
-- Systeem: Niko Home Control.
-- Hoofdfoto: bestaande foto van de verdeelkast met Niko Home Control.
-- Voeg geen niet-bevestigde projectdetails toe.
+## Website-instellingen
 
-Sanity is de enige bron voor portfolio-inhoud. De publieke website leest uitsluitend gepubliceerde projectdocumenten uit de `production`-dataset. Er is geen lokale projectfallback.
+Maak één document aan bij **Website-instellingen**. Daar beheer je:
+- De hoofdboodschap, intro en knoppen van de homepage.
+- De titels en intro's van de homepage-secties.
+- De slogan en publieke contactgegevens die in de footer worden getoond.
+
+Niet ingevulde velden behouden de standaardteksten van de website. Wijzig juridische bedrijfsgegevens niet via dit document; die blijven in de juridische configuratie.
+
+## Publicatie en website
+
+Sanity beheert concepten en publicatiestatus. De statische Astro-website leest gepubliceerde documenten uit de publieke `production`-dataset tijdens de build. Een publicatie in Sanity verschijnt dus op de website na de eerstvolgende succesvolle websitebuild/deployment. De Cloudflare-build wordt automatisch gestart bij een wijziging op `main`.
