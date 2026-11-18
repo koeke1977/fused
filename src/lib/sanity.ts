@@ -124,7 +124,7 @@ export async function getProjects(): Promise<WebsiteProject[]> {
 export async function getServices(): Promise<WebsiteService[]> {
   const cmsServices = await sanityClient.fetch<WebsiteService[]>(servicesQuery);
   if (cmsServices.length > 0) return cmsServices;
-  return fallbackServices as WebsiteService[];
+  return fallbackServices.map((service) => ({ ...service, details: [...("details" in service ? service.details : [])] }));
 }
 
 export async function getWebsiteSettings(): Promise<WebsiteSettings> {
