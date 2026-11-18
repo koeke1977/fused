@@ -1,27 +1,33 @@
 ---
 import type { WebsiteProject } from "../lib/sanity";
-
-interface Props {
-  project: WebsiteProject;
-}
-
+interface Props { project: WebsiteProject; }
 const { project } = Astro.props;
-const images = [
-  { image: project.image, alt: project.imageAlt },
-  ...(project.gallery ?? []),
-];
-const layout = images.length === 1 ? "single" : images.length === 2 ? "pair" : images.length === 3 ? "compact" : "extended";
+const images = [{ image: project.image, alt: project.imageAlt }, ...(project.gallery ?? [])];
+const layout = images.length === 1 ? "single" : images.length === 2 ? "pair" : "mosaic";
 ---
-
-<section class={`project-gallery project-gallery--${layout}`} aria-label="Projectfoto's">
-  {images.map((item, index) => (
-    <figure class="project-gallery__item">
-      <img
-        src={item.image}
-        alt={item.alt}
-        loading={index === 0 ? "eager" : "lazy"}
-        decoding="async"
-      />
-    </figure>
-  ))}
+<section class={`project-gallery project-gallery--${layout}`} aria-label="Projectfoto's" data-project-gallery>
+  <div class="project-gallery__grid">
+    {images.map((item, index) => (
+      <figure class="project-gallery__item">
+        <button class="project-gallery__trigger" type="button" data-gallery-open={index} aria-label={`Bekijk foto ${index + 1} van ${images.length}: ${item.alt || project.title}`}>
+          <img src={item.image} alt={item.alt} loading={index === 0 ? "eager" : "lazy"} decoding="async" />
+          <span class="project-gallery__zoom" aria-hidden="true">+</span>
+        </button>
+      </figure>
+    ))}
+  </div>
+  {images.length > 1 && <p class="project-gallery__hint"><strong>{images.length} foto's</strong><span> — Klik op een foto om de galerij te openen</span></p>}
+  <dialog class="project-lightbox" aria-label="Fotogalerij" data-project-lightbox>
+    <div class="project-lightbox__top">
+      <p class="project-lightbox__count" data-gallery-count aria-live="polite"></p>
+      <button class="project-lightbox__close" type="button" data-gallery-close aria-label="Galerij sluiten">×</button>
+    </div>
+    <div class="project-lightbox__stage">
+      <button class="project-lightbox__nav project-lightbox__nav--prev" type="button" data-gallery-prev aria-label="Vorige foto">‹</button>
+      <img class="project-lightbox__image" data-gallery-image alt="" />
+      <button class="project-lightbox__nav project-lightbox__nav--next" type="button" data-gallery-next aria-label="Volgende foto">›</button>
+    </div>
+    <p class="project-lightbox__caption" data-gallery-caption></p>
+  </dialog>
 </section>
+<script>import "../scripts/project-gallery";</script>
