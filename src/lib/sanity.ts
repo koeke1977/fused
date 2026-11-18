@@ -49,6 +49,18 @@ export interface WebsiteSettings {
   email: string;
   phoneDisplay: string;
   phoneHref: string;
+  aboutTitle: string;
+  aboutTitleAccent: string;
+  aboutIntro: string;
+  aboutProcessTitle: string;
+  aboutProcessParagraph1: string;
+  aboutProcessParagraph2: string;
+  aboutPersonalTitle: string;
+  aboutPersonalParagraph1: string;
+  aboutPersonalParagraph2: string;
+  aboutClosingBrand: string;
+  aboutClosingSlogan: string;
+  aboutClosingLine: string;
 }
 
 const defaultSettings: WebsiteSettings = {
@@ -72,6 +84,18 @@ const defaultSettings: WebsiteSettings = {
   email: fallbackSite.email,
   phoneDisplay: fallbackSite.phoneDisplay,
   phoneHref: fallbackSite.phoneHref,
+  aboutTitle: "Fused – Persoonlijk vakmanschap.",
+  aboutTitleAccent: "Switch on Quality.",
+  aboutIntro: "Achter Fused staat Frederik. Na jarenlang ervaring te hebben opgedaan in de industriële elektriciteit in de haven, besloot hij resoluut zijn eigen weg te gaan. Als zelfstandige wilde hij vooral één ding: zelf de volledige controle hebben over zijn werk, van het eerste gesprek tot de uiteindelijke oplevering.\n\nWant voor Frederik draait elektriciteit om meer dan kabels trekken en aansluitingen plaatsen. Het gaat om kwaliteit, nauwkeurigheid en afspraken nakomen. Hij wil achter elk project met trots zijn naam kunnen zetten.",
+  aboutProcessTitle: "Van eerste gesprek tot oplevering",
+  aboutProcessParagraph1: "Bij Fused begint elk project met een persoonlijk gesprek. Luisteren naar jouw plannen, de noden in kaart brengen en samen nadenken over de beste oplossing. Daarna volgt een duidelijke offerte, een goede planning en een nauwgezette opvolging van de werken.",
+  aboutProcessParagraph2: "Afspraken zijn er om na te komen. Je weet waar je aan toe bent, wat er gebeurt en wanneer. En vooral: je hebt gedurende het volledige traject één vast aanspreekpunt. Geen doorschuiven, geen onduidelijkheid, maar rechtstreeks contact met Frederik.",
+  aboutPersonalTitle: "Eén aanspreekpunt. Eén duidelijke visie.",
+  aboutPersonalParagraph1: "Of het nu gaat om elektriciteitswerken, domotica of verlichting: elk project krijgt dezelfde persoonlijke aandacht en professionele aanpak.",
+  aboutPersonalParagraph2: "Frederik denkt mee, zoekt oplossingen en verliest daarbij nooit de kwaliteit uit het oog. Want een goed resultaat begint bij een goede samenwerking en eindigt met vakwerk waar iedereen tevreden op kan terugkijken.",
+  aboutClosingBrand: "FUSED",
+  aboutClosingSlogan: "SWITCH ON QUALITY.",
+  aboutClosingLine: "Kwaliteit is geen belofte voor achteraf. Het zit in elke stap van het project.",
 };
 
 const projectId = import.meta.env.PUBLIC_SANITY_PROJECT_ID || "ulj7mtyd";
@@ -114,7 +138,11 @@ const settingsQuery = `*[_type == "siteSettings"][0] {
   heroEyebrow, heroTitle, heroTitleAccent, heroIntro, heroPrimaryCta,
   heroSecondaryCta, heroBottomLine, servicesEyebrow, servicesTitle,
   servicesTitleAccent, servicesIntro, projectsEyebrow, projectsTitle,
-  contactEyebrow, contactTitle, contactCta, slogan, email, phoneDisplay, phoneHref
+  contactEyebrow, contactTitle, contactCta, slogan, email, phoneDisplay, phoneHref,
+  aboutTitle, aboutTitleAccent, aboutIntro, aboutProcessTitle,
+  aboutProcessParagraph1, aboutProcessParagraph2, aboutPersonalTitle,
+  aboutPersonalParagraph1, aboutPersonalParagraph2, aboutClosingBrand,
+  aboutClosingSlogan, aboutClosingLine
 }`;
 
 export async function getProjects(): Promise<WebsiteProject[]> {
