@@ -34,21 +34,38 @@ These rules apply to every file, feature, refactor, generated change and AI-assi
 
 - Use TypeScript for application logic and define explicit types for content models and function boundaries.
 - No hardcoded project content in page templates; portfolio content comes from the CMS.
+- Static brand/editorial pages (such as the Over Fused story) may keep their copy in the Astro page when that is the deliberate product decision; do not add unnecessary CMS fields or API dependencies for them.
 - No secrets, tokens, private keys, or credentials in source control.
 - Use accessible semantic HTML and responsive layouts.
 - Prefer simple solutions that are easy to understand and maintain.
 - Remove dead code and unused dependencies.
 - Update documentation when architecture, setup, deployment, or content models change.
 
+### Mandatory change-and-cleanup rule
+
+Every code change must include a cleanup review of the affected area. Adding code is never the only task.
+
+- Inspect existing code around the change before implementing it.
+- Trace affected imports, exports, functions, types, variables, constants, props, CMS fields, queries, CSS selectors, assets and configuration.
+- Remove anything made obsolete by the change in the same pull request: unused code, imports, types, variables, schema fields, query fields, styles, dependencies, duplicate logic and stale comments.
+- Search the repository for every candidate symbol/selector before deleting it. Do not remove something merely because it looks unused in one file.
+- If a candidate cannot be proven unused or is intentionally retained for a documented reason, keep it and record why in the pull request summary.
+- Update or remove documentation that describes the old behaviour or architecture.
+- Do not leave temporary compatibility layers, commented-out code, abandoned implementations or duplicate sources of truth unless there is a documented technical reason.
+- Prefer simplifying or replacing existing code over layering another implementation on top.
+- A change is not ready for review until both the requested implementation and its cleanup review are complete.
+
 ## 5. Required workflow
 
 Before implementing a feature:
-1. Inspect the existing structure and relevant files.
+1. Read this file and inspect the existing structure and relevant files.
 2. Identify the smallest set of files that should own the change.
-3. Preserve the separation rules above.
-4. Implement only the requested scope.
-5. Run the relevant checks/build and fix errors.
-6. Summarize changed files and verification results.
+3. Trace current usages and dependencies before changing or removing anything.
+4. Preserve the separation rules above.
+5. Implement the requested scope and clean up obsolete code in the same change.
+6. Run the relevant checks/build and fix errors.
+7. Review the final diff for dead code, duplication, unrelated changes and stale documentation.
+8. Summarize changed files, cleanup performed, retained candidates and verification results.
 
 Before adding a dependency, explain why it is needed and prefer native platform capabilities where practical.
 
