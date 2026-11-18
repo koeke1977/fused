@@ -1,6 +1,6 @@
 # FUSED contentbeheer
 
-De Sanity Studio beheert de realisaties, diensten en algemene website-instellingen van FUSED.
+De Sanity Studio beheert de realisaties, diensten en algemene homepage- en contactinstellingen van FUSED. De Over Fused-pagina is bewust statisch opgebouwd in de Astro-website en wordt niet via Sanity beheerd.
 
 ## Studio
 
@@ -36,11 +36,11 @@ De vier bestaande diensten blijven zichtbaar via lokale standaardinhoud totdat d
 
 ## Website-instellingen
 
-Maak één document aan bij **Website-instellingen**. Beheer daar de homepagekoppen, intro's, call-to-action-teksten, slogan en publieke contactgegevens. Niet ingevulde velden gebruiken de bestaande standaardteksten.
+Maak één document aan bij **Website-instellingen**. Beheer daar de homepagekoppen, intro's, call-to-action-teksten, slogan en telefoonnummer. Niet ingevulde velden gebruiken de bestaande standaardteksten. De Over Fused-tekst en het publieke e-mailadres worden niet via deze instellingen beheerd.
 
 ## Publicatie en deployment
 
-De publieke Astro-site leest gepubliceerde documenten uit de publieke dataset via de Sanity CDN. De inhoud wordt tijdens de statische build opgehaald. Een wijziging in Sanity is dus zichtbaar op de website na de eerstvolgende geslaagde websitebuild/deployment. De Cloudflare Worker bouwt automatisch bij commits op `main`.
+De publieke Astro-site leest gepubliceerde documenten uit de publieke dataset tijdens de statische build. De Sanity-client gebruikt momenteel de API zonder CDN-cache. Een wijziging in Sanity is zichtbaar op de website na de eerstvolgende geslaagde websitebuild/deployment. De Cloudflare Worker bouwt automatisch bij commits op `main`.
 
 ## Toegangsbeheer
 
