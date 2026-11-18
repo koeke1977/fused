@@ -2,9 +2,10 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
-import { services } from "../../data/services";
+import { getServices } from "../../lib/sanity";
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
+  const services = await getServices();
   return services.map((service) => ({
     params: { slug: service.slug },
     props: { service }
@@ -21,13 +22,13 @@ const { service } = Astro.props;
         <p class="eyebrow">ONZE DIENSTEN</p>
         <h1>{service.title}</h1>
         <p>{service.summary}</p>
-        {"details" in service && (
+        {service.details && service.details.length > 0 && (
           <div class="service-detail-extra">
-            <h2>{service.detailsTitle}</h2>
+            {service.detailsTitle && <h2>{service.detailsTitle}</h2>}
             <ul>
               {service.details.map((detail) => <li>{detail}</li>)}
             </ul>
-            <p class="service-detail-note">De officiële keuring wordt uitgevoerd door een erkend controleorganisme.</p>
+            {service.slug === "elektriciteitswerken" && <p class="service-detail-note">De officiële keuring wordt uitgevoerd door een erkend controleorganisme.</p>}
           </div>
         )}
         <a class="button" href="/contact/">Bespreek je project</a>

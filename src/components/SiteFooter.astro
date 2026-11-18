@@ -1,5 +1,7 @@
 ---
-import { site } from "../data/site";
+import { getWebsiteSettings } from "../lib/sanity";
+
+const settings = await getWebsiteSettings();
 ---
 <footer class="site-footer">
   <div class="container footer-inner">
@@ -7,12 +9,13 @@ import { site } from "../data/site";
     <div class="footer-contact">
       <strong>Contact</strong>
       <a href="/contact/">Stel je vraag</a>
-      <a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a>
+      <a href={`tel:${settings.phoneHref}`}>{settings.phoneDisplay}</a>
+      <a href={`mailto:${settings.email}`}>{settings.email}</a>
     </div>
     <nav class="footer-legal" aria-label="Juridische informatie">
       <a href="/juridisch/">Juridische informatie</a>
       <a href="/privacy/">Privacyverklaring</a>
     </nav>
   </div>
-  <div class="container copyright">© {new Date().getFullYear()} Fused · Switch on Quality</div>
+  <div class="container copyright">© {new Date().getFullYear()} Fused · {settings.slogan}</div>
 </footer>
