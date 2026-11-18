@@ -2,7 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
-import { site } from "../data/site";
+import { getWebsiteSettings } from "../lib/sanity";
+
+const settings = await getWebsiteSettings();
 ---
 <BaseLayout title="Contact | Fused">
   <SiteHeader />
@@ -22,7 +24,8 @@ import { site } from "../data/site";
           <p>Bezorg ons wat meer informatie. Zodra de beveiligde mailkoppeling actief is, ontvang je na verzending ook automatisch een kopie van je bericht.</p>
           <div class="contact-direct">
             <span>Toch liever telefonisch?</span>
-            <a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a>
+            <a href={`tel:${settings.phoneHref}`}>{settings.phoneDisplay}</a>
+            <a href={`mailto:${settings.email}`}>{settings.email}</a>
           </div>
         </div>
         <form class="contact-form" aria-describedby="contact-form-notice">
