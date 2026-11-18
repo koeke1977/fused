@@ -1,5 +1,6 @@
 /* Shared mobile layout and navigation refinements */
 .mobile-menu{display:none}
+.mobile-home-link{display:none}
 @media(max-width:760px){
   .container{width:calc(100% - 36px)}
   .header-inner{min-height:72px;gap:16px}
@@ -32,6 +33,9 @@
   .section-heading h2{font-size:clamp(2rem,9vw,3rem);line-height:1.04}
   .section-intro{max-width:none;margin:0;font-size:1.02rem;line-height:1.65}
   .services-grid,.projects-grid{grid-template-columns:minmax(0,1fr);gap:14px}
+  .services-grid .service-card:nth-child(n+4){display:none}
+  .projects-grid .project-card:nth-child(n+2){display:none}
+  .mobile-home-link{display:inline-flex;margin-top:22px;font-weight:800}
   .service-card{min-height:0;padding:22px}
   .service-card h3{margin:18px 0 10px}
   .service-card p{min-height:0;font-size:1.02rem}
