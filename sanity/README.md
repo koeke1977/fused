@@ -41,7 +41,17 @@ De eigenaar beheert leden via Sanity. Geef Frederik pas toegang wanneer de Studi
 
 De publieke Astro-site leest gepubliceerde documenten uit de publieke dataset via de Sanity CDN. Hiervoor is geen schrijftoken nodig. Schrijftoegang blijft uitsluitend in de geauthenticeerde Sanity Studio.
 
-De website gebruikt de bestaande lokale projectdata als tijdelijke terugval zolang de eerste projecten nog niet in Sanity gepubliceerd zijn. Zodra de CMS-projecten gepubliceerd zijn, worden die als bron gebruikt.
+De eerste twee voorlopige realisaties kunnen eenmalig naar Sanity worden overgezet met het migratiescript. Voer dit uit vanuit de repository-root nadat je een Sanity API-token met write-toegang hebt aangemaakt. Zet het token uitsluitend als omgevingsvariabele; commit of deel het nooit.
+
+PowerShell:
+
+```powershell
+$env:SANITY_API_TOKEN = "<jouw-token>"
+npm run migrate:projects
+Remove-Item Env:SANITY_API_TOKEN
+```
+
+Het script uploadt de twee bestaande WebP-hoofdfoto's uit `public/images` en maakt de twee projectdocumenten aan met vaste IDs. Het is veilig opnieuw uit te voeren: dezelfde documenten worden bijgewerkt in plaats van gedupliceerd. Controleer daarna beide realisaties in Sanity Studio. De lokale projectdata blijft voorlopig als technische terugval bestaan totdat de migratie en de websitebuild bevestigd zijn.
 
 ## Commando's
 
