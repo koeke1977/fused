@@ -15,3 +15,21 @@
 
 /* Project execution year */
 .project-detail-copy .project-year{margin:12px 0 0!important;color:var(--orange);font-size:1.15rem;font-weight:700;letter-spacing:.04em}
+
+
+/* Over Fused – persoonlijk verhaal */
+.about-page{background:#090909;color:#fff}
+.about-container{max-width:900px}
+.about-hero{padding:88px 0 58px;background:#090909;border-bottom:1px solid #292929}
+.about-hero h1{display:flex;flex-direction:column;gap:4px;max-width:900px;margin:22px 0 30px;font-size:clamp(3rem,6vw,5.4rem);line-height:1.02;letter-spacing:-.055em}
+.about-title-accent{color:var(--orange)}
+.about-intro{max-width:850px;margin:0;color:#e5e5e5;font-size:1.25rem;line-height:1.85;white-space:pre-line}
+.about-content{padding:68px 0 96px;background:#101010}
+.about-section{max-width:850px;margin:0 0 58px}
+.about-section h2{margin:0 0 22px;color:#fff;font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.12;letter-spacing:-.035em}
+.about-section p{margin:0 0 20px;color:#d0d0d0;font-size:1.2rem;line-height:1.85}
+.about-signoff{margin-top:76px;padding-top:36px;border-top:1px solid #303030}
+.about-signoff-brand{margin:0;color:#fff;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;line-height:1;letter-spacing:-.04em}
+.about-signoff-slogan{margin:10px 0 24px;color:var(--orange);font-size:1.2rem;font-weight:900;letter-spacing:.16em}
+.about-signoff-line{max-width:760px;margin:0;color:#fff;font-size:1.3rem;font-weight:700;line-height:1.6}
+@media(max-width:650px){.about-hero{padding:64px 0 42px}.about-hero h1{font-size:clamp(2.6rem,11vw,4rem)}.about-intro,.about-section p{font-size:1.08rem;line-height:1.75}.about-content{padding:52px 0 68px}.about-section{margin-bottom:44px}.about-signoff{margin-top:54px}.about-signoff-slogan{font-size:1rem;letter-spacing:.1em}.about-signoff-line{font-size:1.12rem}}
