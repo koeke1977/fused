@@ -6,32 +6,47 @@ Modern Dutch-language website for Fused, an electrical installation company.
 
 - Present Fused's services to private customers.
 - Showcase completed projects through a maintainable portfolio.
-- Allow a non-technical site owner to manage projects and website content through a CMS.
+- Let the FUSED team manage portfolio content in Sanity without editing source code.
 - Keep the public website fast, accessible, responsive and SEO-friendly.
-- Deploy from GitHub to Cloudflare.
+- Deploy the public website from GitHub to Cloudflare.
+- Host the content-management Studio separately on Sanity.
 - Use `www.electrafest.be` as the temporary public design/preview domain; the intended production domain is `www.fused.be`.
 
-## Non-negotiable development rules
+## Technology
 
-**Read [AGENTS.md](./AGENTS.md) before making any code changes.**
-
-In particular:
-- HTML, CSS and JavaScript/TypeScript must never be mixed.
-- CSS lives in separate `.css` files.
-- JavaScript/TypeScript lives in separate `.js`/`.ts` files.
-- Markup lives in `.astro` components/pages (or dedicated HTML files).
-- Files stay small and have one clear responsibility.
-- Keep the structure logical, modular and documented.
-
-## Planned stack
-
-- Astro for the website.
-- TypeScript for application logic.
-- Sanity for content management and portfolio data.
+- Astro for the public website.
+- TypeScript for application logic and content models.
+- Sanity for project management and portfolio content.
 - GitHub for source control.
-- Cloudflare for hosting, DNS, TLS and deployment.
-- Visual Studio Code and Claude for development.
+- Cloudflare for public website hosting.
+- Sanity hosting for the authenticated content Studio.
 
-## Project status
+## Development rules
 
-Initial repository setup. The application scaffold, CMS configuration and deployment configuration are not yet installed.
+**Read [AGENTS.md](./AGENTS.md) before making code changes.**
+
+HTML, CSS and TypeScript stay in their dedicated files. CSS belongs in `src/styles`; application logic belongs in TypeScript modules; Astro pages compose markup and data.
+
+## Commands
+
+- `npm run dev`: start the public website locally.
+- `npm run check`: run Astro and TypeScript checks.
+- `npm run build`: build the public website.
+- `npm run studio`: start the Sanity Studio locally.
+- `npm run studio:build`: build the Studio.
+- `npm run studio:deploy`: deploy the Studio to Sanity hosting.
+- `npm run deploy`: deploy the public website to Cloudflare.
+
+## Sanity project
+
+- Project: Fused Website
+- Project ID: `ulj7mtyd`
+- Dataset: `production`
+
+See [sanity/README.md](./sanity/README.md) for Studio setup and editorial guidance. The public site uses a read-only client; never add a write token to public environment variables.
+
+## Current rollout
+
+The Sanity Studio and project schemas are being connected first. The current portfolio data remains as a temporary fallback until both existing projects have been entered and published in Sanity. Only then should the fallback be removed.
+
+The preview site intentionally remains noindex until the final domain is ready.
