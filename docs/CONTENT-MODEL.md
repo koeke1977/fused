@@ -20,7 +20,9 @@ Projecten worden beheerd als `project`-documenten in de publieke `production`-da
 
 Sanity beheert concepten en publicatiestatus zelf. Een concept wordt niet door de publieke website opgehaald.
 
-## Bestaande realisaties
+## Ingevoerde realisaties
+
+De eerste twee portfolio-items zijn gemigreerd en gepubliceerd in Sanity:
 
 ### Residentiële nieuwbouw
 - Categorie: Elektriciteitswerken
@@ -34,6 +36,4 @@ Sanity beheert concepten en publicatiestatus zelf. Een concept wordt niet door d
 - Hoofdfoto: bestaande foto van de verdeelkast met Niko Home Control.
 - Voeg geen niet-bevestigde projectdetails toe.
 
-## Migratie
-
-De twee bestaande projecten blijven als tijdelijke terugval in `src/data/projects.ts` staan totdat beide documenten in Sanity zijn aangemaakt en gepubliceerd. Daarna kan de tijdelijke dataset verwijderd worden.
+Sanity is de enige bron voor portfolio-inhoud. De publieke website leest uitsluitend gepubliceerde projectdocumenten uit de `production`-dataset. Er is geen lokale projectfallback.
