@@ -80,15 +80,14 @@
   .about-signoff-slogan{font-size:1rem;letter-spacing:.1em}
   .about-signoff-line{font-size:1.12rem}
   .file-upload-dropzone{min-height:150px;padding:16px 12px}
-  .file-upload-item{min-width:0}
+  .file-upload-item{min-width:0;align-items:flex-start;flex-direction:column;gap:8px}
   .file-upload-details{overflow-wrap:anywhere}
-  .file-upload-item{align-items:flex-start;flex-direction:column;gap:8px}
 }
 @media(max-width:380px){
   .container{width:calc(100% - 28px)}
   .brand img{width:128px}
   .hero-copy h1{font-size:2.65rem}
-  .hero-brand img{width:82%}
+  .hero-brand img{width:min(68%,220px)}
 }
 @media(prefers-reduced-motion:reduce){
   .mobile-menu summary span{transition:none}
